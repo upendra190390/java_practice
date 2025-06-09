@@ -1,1 +1,34 @@
+public class A {
+    public static void main(String[] args) {
+
+
+        List<Emloyee> list = Arrays.asList(
+                new Emloyee(1, "Mike", 1000),
+                new Emloyee(2, "John", 3000),
+
+                new Emloyee(3, "Alice", 1000),
+                new Emloyee(4, "Methew", 3000),
+                new Emloyee(5, "Semus", 1000),
+                new Emloyee(6, "Jony", 3000)
+        );
+
+        Map<Integer, List<Emloyee>> data = list.stream().collect(Collectors.groupingBy(e -> e.getSalary()));
+
+        Set<Integer> keys = data.keySet();
+        for (int k:keys){
+            System.out.println("salary grouping for:"+k);
+            List<Emloyee> e = data.get(k);
+            for(Emloyee newEmployee : e){
+                System.out.println(newEmployee.getId());
+                System.out.println(newEmployee.getName());
+                System.out.println(newEmployee.getSalary());
+            }
+
+        }
+
+
+
+
+    }
+}
 
